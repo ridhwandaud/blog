@@ -11,7 +11,7 @@ The seed app doesn't do much, just shows how to wire two controllers and views t
 
 
 #angular-reference-tutorial
-This app follow tutorial from [http://code.tutsplus.com/series/creating-a-web-app-from-scratch-using-angularjs-and-firebase--cms-717](this tutorial)
+This app follow tutorial from [this tutorial](http://code.tutsplus.com/series/creating-a-web-app-from-scratch-using-angularjs-and-firebase--cms-717)
 
 ## Getting Started
 
