@@ -1,4 +1,4 @@
-# angular-seed — the seed for AngularJS apps
+# angular-blog-seed — the blog seed for AngularJS apps
 
 This project is an application skeleton for a typical [AngularJS](http://angularjs.org/) web app.
 You can use it to quickly bootstrap your angular webapp projects and dev environment for these
@@ -9,6 +9,9 @@ framework and a bunch of development and testing tools for instant web developme
 
 The seed app doesn't do much, just shows how to wire two controllers and views together.
 
+
+#angular-reference-tutorial
+This app follow tutorial from [http://code.tutsplus.com/series/creating-a-web-app-from-scratch-using-angularjs-and-firebase--cms-717](this tutorial)
 
 ## Getting Started
 
