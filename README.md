@@ -10,7 +10,7 @@ framework and a bunch of development and testing tools for instant web developme
 The seed app doesn't do much, just shows how to wire two controllers and views together.
 
 
-#angular-reference-tutorial
+##angular-reference-tutorial
 This app follow tutorial from [this tutorial](http://code.tutsplus.com/series/creating-a-web-app-from-scratch-using-angularjs-and-firebase--cms-717)
 
 ## Getting Started
