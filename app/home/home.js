@@ -11,23 +11,25 @@ angular.module('myApp.home', ['ngRoute','firebase'])
 }])
  
 // Home controller
-.controller('HomeCtrl', ['$scope','$firebaseSimpleLogin',function($scope,$firebaseSimpleLogin) {
+.controller('HomeCtrl', ['$scope','$location','$firebaseAuth','CommonProp',function($scope,$location,$firebaseAuth,CommonProp) {
     
     var firebaseObj = new Firebase("https://intense-fire-5714.firebaseio.com"); 
-    var loginObj = $firebaseSimpleLogin(firebaseObj);
+    var loginObj = $firebaseAuth(firebaseObj);
     $scope.SignIn = function(user) 
     {
         event.preventDefault();  // To prevent form refresh
         var username =  user.email;
         var password =  user.password;
         
-        loginObj.$login('password', {
+        loginObj.$authWithPassword ({
                 email: username,
                 password: password
             })
             .then(function(user) {
                 // Success callback
                 console.log('Authentication successful');
+                CommonProp.setUser(user.password.email);
+                $location.path('/welcome');
             }, function(error) {
                 // Failure callback
                 console.log('Authentication failure');
@@ -36,4 +38,17 @@ angular.module('myApp.home', ['ngRoute','firebase'])
      
     // Auth Logic will be here
     }
-}]);
+}])
+
+.service('CommonProp', function() {
+    var user = '';
+ 
+    return {
+        getUser: function() {
+            return user;
+        },
+        setUser: function(value) {
+            user = value;
+        }
+    };
+});

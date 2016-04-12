@@ -3,7 +3,9 @@
 angular.module('myApp', [
     'ngRoute',
     'myApp.home',
-    'myApp.register'           // Newly added register module
+    'myApp.register',
+    'myApp.welcome',
+    'myApp.addPost'       
 ]).
 config(['$routeProvider', function($routeProvider) {
     // Set defualt view of our app to home
