@@ -1,6 +1,6 @@
 'use strict';
  
-angular.module('myApp.register', ['ngRoute'])
+angular.module('myApp.register', ['ngRoute','firebase'])
  
 // Declared route 
 .config(['$routeProvider', function($routeProvider) {
@@ -11,7 +11,8 @@ angular.module('myApp.register', ['ngRoute'])
 }])
  
 // Register controller
-.controller('RegisterCtrl', ['$scope','$location','$firebaseAuth', function($scope,$location,$firebaseAuth) {
+
+.controller('RegisterCtrl', ['$scope','$location','$firebaseAuth' , function($scope,$location,$firebaseAuth) {
 
 	var firebaseObj = new Firebase("https://intense-fire-5714.firebaseio.com");
 	var auth = $firebaseAuth(firebaseObj);
@@ -31,8 +32,10 @@ angular.module('myApp.register', ['ngRoute'])
                         console.log(error);
 	                    $scope.regError = true;
 	                    $scope.regErrorMessage = error.message;
+
                     });
             }
         }
     };
+
 }]);
