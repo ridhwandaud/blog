@@ -9,8 +9,29 @@ angular.module('myApp.addPost', ['ngRoute'])
     });
 }])
 	
-.controller('AddPostCtrl', ['$scope','$firebase',function($scope,$firebase) {
+.controller('AddPostCtrl', ['$scope','$firebase','CommonProp','$location',function($scope,$firebase,CommonProp,$location) {
  
- 	var firebaseObj = new Firebase("https://intense-fire-5714.firebaseio.com");
- 	var fb = $firebase(firebaseObj); 
+ 	var firebaseObj = new Firebase("https://intense-fire-5714.firebaseio.com/Articles");
+ 	var fb = $firebase(firebaseObj);
+
+ 	 $scope.AddPost = function() {
+         
+      	// Add Post logic will be here
+    	var title = $scope.article.title;
+		var post = $scope.article.post;
+
+		fb.$push({
+		    title: title,
+		    post: post,
+		    emailId: CommonProp.getUser()
+		}).then(function(ref) {
+		    $location.path('/welcome');
+		}, function(error) {
+		    console.log("Error:", error);
+		});  
+    }
+
+
+
+
 }]);
