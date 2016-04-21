@@ -13,7 +13,7 @@ angular.module('myApp.welcome', ['ngRoute'])
  	
  	$scope.username = CommonProp.getUser();
  	var firebaseObj = new Firebase("https://intense-fire-5714.firebaseio.com/Articles");
- 	var sync = $firebase(firebaseObj);
+ 	var sync = $firebase(firebaseObj.startAt($scope.username).endAt($scope.username));
  	$scope.articles = sync.$asArray();
 
  	$scope.editPost = function(id) {

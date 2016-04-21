@@ -20,10 +20,13 @@ angular.module('myApp.addPost', ['ngRoute'])
     	var title = $scope.article.title;
 		var post = $scope.article.post;
 
+		var user = CommonProp.getUser();
+
 		fb.$push({
 		    title: title,
 		    post: post,
-		    emailId: CommonProp.getUser()
+		     emailId: user,
+    		'.priority': user
 		}).then(function(ref) {
 		    $location.path('/welcome');
 		}, function(error) {
