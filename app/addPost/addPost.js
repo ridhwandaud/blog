@@ -34,6 +34,10 @@ angular.module('myApp.addPost', ['ngRoute'])
 		});  
     }
 
+    $scope.logout = function(){
+	    CommonProp.logoutUser();
+	}
+
 
 
 

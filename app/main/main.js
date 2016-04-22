@@ -1,17 +1,23 @@
 'use strict';
  
-angular.module('myApp.welcome', ['ngRoute'])
+angular.module('myApp.main', ['ngRoute'])
  
 .config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/welcome', {
-        templateUrl: 'welcome/welcome.html',
-        controller: 'WelcomeCtrl'
+    $routeProvider.when('/main', {
+        templateUrl: 'main/main.html',
+        controller: 'MainCtrl'
     });
 }])
  
-.controller('WelcomeCtrl', ['$scope','CommonProp','$firebase', function($scope,CommonProp,$firebase) {
+.controller('MainCtrl', ['$scope','CommonProp','$firebase', function($scope,CommonProp,$firebase) {
  	
  	$scope.username = CommonProp.getUser();
+
+ 	if($scope.username == "")
+ 	{
+ 		console.log("please login");
+ 		return;
+ 	}
  	var firebaseObj = new Firebase("https://intense-fire-5714.firebaseio.com/Articles");
  	var sync = $firebase(firebaseObj.startAt($scope.username).endAt($scope.username));
  	$scope.articles = sync.$asArray();
@@ -57,5 +63,9 @@ angular.module('myApp.welcome', ['ngRoute'])
             console.log("Error:", error);
         });
     }
+
+    $scope.logout = function(){
+	    CommonProp.logoutUser();
+	}
 
 }]);

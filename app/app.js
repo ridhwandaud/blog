@@ -4,7 +4,7 @@ angular.module('myApp', [
     'ngRoute',
     'myApp.home',
     'myApp.register',
-    'myApp.welcome',
+    'myApp.main',
     'myApp.addPost'       
 ]).
 config(['$routeProvider', function($routeProvider) {

@@ -34,7 +34,15 @@
   <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
-
+  <div class="blog-masthead" ng-controller="MainCtrl">
+    <div class="container">
+        <nav class="blog-nav">
+            <a class="blog-nav-item active" href="#">Home</a>
+            <a class="blog-nav-item " href="#/addPost">Add Post</a>
+            <a class="blog-nav-item " style="cursor:pointer;" ng-click="logout();">Logout</a>
+        </nav>
+    </div>
+  </div>
   <div ng-view></div>
   
   <!-- In production use:
@@ -48,7 +56,7 @@
   <script src="app.js"></script>
   <script src="home/home.js"></script>
   <script src="register/register.js"></script>
-  <script src="welcome/welcome.js"></script>
+  <script src="main/main.js"></script>
   <script src="addPost/addPost.js"></script>
   <script src="components/version/version.js"></script>
   <script src="components/version/version-directive.js"></script>
